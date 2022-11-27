@@ -16,3 +16,8 @@ function addBookToLibrary(book) {
   myLibrary.push(book);
 }
 
+
+myLibrary.push(new Book('Dune', 'Frank Herbert', 400, true));
+myLibrary.push(new Book('Breathe', 'James Nestor', 200, false));
+
+console.log(myLibrary);

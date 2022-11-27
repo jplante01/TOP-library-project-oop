@@ -53,24 +53,30 @@ table {
 }
 
 .sidebar {
-  width: 35%;
+  width: 20%;
   height: 100vh;
   float: left;
 }
 
 .main {
-  width: 65%;
+  width: 80%;
   height: 100vh;
   float: left;
 }
 
 .books {
-  margin: 400px 200px;
+  margin: 150px 200px;
   border: 2px solid black; 
 }
 
-.books ul {
-  padding: 100px;
+.books table  {
+  margin: 50px;
 }
 
+th, td {
+  padding: 10px;
+}
 
+tr:nth-child(even) {
+  background-color: #D6EEEE;
+}
