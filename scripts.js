@@ -35,7 +35,8 @@ function addBookToTable(book) {
 myLibrary.push(new Book('Dune', 'Frank Herbert', 400, true));
 myLibrary.push(new Book('Breathe', 'James Nestor', 200, false));
 
-console.log(myLibrary);
+myLibrary.forEach(book => addBookToTable(book));
+
 
 // UI.prototype.addBookToList = function(book){
 //   const list = document.getElementById('book-list');
