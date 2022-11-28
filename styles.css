@@ -89,6 +89,7 @@ table {
 .books table  {
   margin: 50px;
   font-size: 18px;
+  border
 }
 
 th, td {
@@ -113,5 +114,28 @@ tr:nth-child(odd) {
 
 tr:first-child {
   background-color: #EAD6EE;
+}
+
+.pop-up {
+  position: absolute;
+  top: 15vh;
+  left: 20vw;
+  background-color: white;
+  height: 60vh;
+  width: 60vw;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+}
+
+#new-book-form {
+  padding-top: 90px;
+}
+
+#new-book-form div {
+  display: flex;
+  flex-direction: column;
+  padding-bottom: 20px;
 }
 

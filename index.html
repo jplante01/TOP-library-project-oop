@@ -15,7 +15,7 @@
   <div class="main">
     <div class="books">
     <div class="table-nav">
-      <span>My Library</span><button>Add New Book</button>
+      <span>My Library</span><button id="new-book-btn">Add New Book</button>
     </div>
     <table>
        <tbody id='book-table'>
@@ -29,6 +29,30 @@
          </tr>
        </tbody>
      </table>
+    </div>
+  </div>
+  <div class="pop-up">
+    <form action="#" method="post" id="new-book-form">
+      <div>
+        <label for="name">Title</label>
+        <input type="text" id="name" name="name">
+      </div>
+      <div>
+        <label for="author">Author</label>
+        <input type="text" id="author" name="author">
+      </div>
+      <div>
+        <label for="pages">Pages</label>
+        <input type="number" id="pages" name="pages">
+      </div>
+      <div>
+        <label for="read">Have you read it?</label>
+        <input type="checkbox" id="read" name="read">
+      </div>
+    </form>
+    <div>
+      <input type="submit" value="Add Book" form="new-book-form">
+      <button>Cancel</button>
     </div>
   </div>
 </div>

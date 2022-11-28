@@ -1,5 +1,6 @@
 const myLibrary = [];
 const bookTable = document.getElementById('book-table');
+const newBookBtn = document.getElementById('new-book-btn');
 
 // Book constructor
 function Book(title, author, pages, read) {
