@@ -1,6 +1,7 @@
 const myLibrary = [];
 const bookTable = document.getElementById('book-table');
 
+// Book constructor
 function Book(title, author, pages, read) {
   this.title = title;
   this.author = author;
@@ -13,10 +14,12 @@ function Book(title, author, pages, read) {
   }
 }
 
+//Adds book object to library array
 function addBookToLibrary(book) {
   myLibrary.push(book);
 }
 
+//Adds book to page as table row
 function addBookToTable(book) {
  let row = document.createElement('tr');
 
@@ -25,8 +28,8 @@ function addBookToTable(book) {
   <td>${book.author}</td>
   <td>${book.pages}</td>
   <td>${book.read}</td>
-  <td><a href="#" class=""></a>X</td>
-  <td><a href="#" class="delete"></a>X</td>
+  <td class="center"><a href="#" ></a>X</td>
+  <td class="center"><a href="#" class="delete"></a>X</td>
  `;
 
  bookTable.appendChild(row);
@@ -34,6 +37,7 @@ function addBookToTable(book) {
 
 myLibrary.push(new Book('Dune', 'Frank Herbert', 400, true));
 myLibrary.push(new Book('Breathe', 'James Nestor', 200, false));
+
 
 myLibrary.forEach(book => addBookToTable(book));
 

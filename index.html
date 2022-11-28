@@ -8,22 +8,27 @@
 </head>
 <body>
 <div class="container">
-  <div class="sidebar"></div>
+  <div class="header">
+  <div class="banner">Reading Tracker</div>
+  </div>
+  <div class="sidebar">Track info on the the books you are interested in! You can store the name, author, number of pages, and whether you have read it! Buttons beside the entries make the list interactive</div>
   <div class="main">
     <div class="books">
-     <table>
+    <div class="table-nav">
+      <span>My Library</span><button>Add New Book</button>
+    </div>
+    <table>
        <tbody id='book-table'>
-        <tr>
-         <th>Name</th>
-         <th>Author</th>
-         <th>Pages</th>
-         <th>Read?</th>
-         <th>Toggle Read</th>
-         <th>Delete</th>
-       </tr>
+         <tr>
+           <th>Name</th>
+           <th>Author</th>
+           <th>Pages</th>
+           <th>Read?</th>
+           <th>Toggle Read</th>
+           <th>Delete</th>
+         </tr>
        </tbody>
      </table>
-     <button>Add New Book</button>
     </div>
   </div>
 </div>
