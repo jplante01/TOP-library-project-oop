@@ -31,30 +31,44 @@
      </table>
     </div>
   </div>
-  <div class="pop-up">
-    <form action="#" method="post" id="new-book-form">
-      <div>
-        <label for="name">Title</label>
-        <input type="text" id="name" name="name">
+  <div id="pop-up" class="hide">
+    <div class="form-container">
+      <form action="#" method="post" id="new-book-form">
+        <div>
+          <label for="name">Title</label>
+          <input type="text" id="name" name="name">
+        </div>
+        <div>
+          <label for="author">Author</label>
+          <input type="text" id="author" name="author">
+        </div>
+        <div>
+          <label for="pages">Pages</label>
+          <input type="number" id="pages" name="pages">
+        </div>
+        <div>
+          <div>
+            <label for="not-read">Not Read</label>
+            <input type="radio" id="not-read" name="read" value="false" checked>
+          </div>
+          <div>
+            <label for="read">Read</label>
+            <input type="radio" id="read" name="read" value="true">
+          </div>
+        </div>
+      </form>
+      <div class="form-footer">
+        <input type="submit" value="Add Book" form="new-book-form">
+        <button id="close-form-btn">Cancel</button>
       </div>
-      <div>
-        <label for="author">Author</label>
-        <input type="text" id="author" name="author">
-      </div>
-      <div>
-        <label for="pages">Pages</label>
-        <input type="number" id="pages" name="pages">
-      </div>
-      <div>
-        <label for="read">Have you read it?</label>
-        <input type="checkbox" id="read" name="read">
-      </div>
-    </form>
-    <div>
-      <input type="submit" value="Add Book" form="new-book-form">
-      <button>Cancel</button>
     </div>
   </div>
 </div>
 </body>
 </html>
+
+    <div>
+      <input type="radio" id="huey" name="drone" value="huey"
+             checked>
+      <label for="huey">Huey</label>
+    </div>

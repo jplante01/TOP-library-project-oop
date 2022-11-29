@@ -116,26 +116,42 @@ tr:first-child {
   background-color: #EAD6EE;
 }
 
-.pop-up {
-  position: absolute;
-  top: 15vh;
-  left: 20vw;
-  background-color: white;
+#pop-up {
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 100vh;
+  width: 100vw;
+  background-color: rgba(0, 0, 0, 0.5);
+}
+
+.hide {
+  display: none; 
+}
+
+.form-container {
+  position: relative;
+  left: 25vw;
+  top: 25vh;
   height: 60vh;
-  width: 60vw;
+  width: 50%;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
   align-items: center;
+  background-color: white;
 }
 
 #new-book-form {
   padding-top: 90px;
 }
 
-#new-book-form div {
+#new-book-form > div {
   display: flex;
   flex-direction: column;
   padding-bottom: 20px;
 }
 
+.form-footer{
+  padding-bottom: 50px;
+}

@@ -1,6 +1,4 @@
 const myLibrary = [];
-const bookTable = document.getElementById('book-table');
-const newBookBtn = document.getElementById('new-book-btn');
 
 // Book constructor
 function Book(title, author, pages, read) {
@@ -33,7 +31,7 @@ function addBookToTable(book) {
   <td class="center"><a href="#" class="delete"></a>X</td>
  `;
 
- bookTable.appendChild(row);
+ document.getElementById('book-table').appendChild(row);
 }
 
 myLibrary.push(new Book('Dune', 'Frank Herbert', 400, true));
@@ -42,17 +40,45 @@ myLibrary.push(new Book('Breathe', 'James Nestor', 200, false));
 
 myLibrary.forEach(book => addBookToTable(book));
 
+function closePopUp() {
+  document.getElementById('pop-up').className = 'hide';
+}; 
 
-// UI.prototype.addBookToList = function(book){
-//   const list = document.getElementById('book-list');
-//   // create tr element
-//   const row = document.createElement('tr');
-//   row.innerHTML = `
-//     <td>${book.title}</td>
-//     <td>${book.author}</td>
-//     <td>${book.isbn}</td>
-//     <td><a href="#" class="delete"></a>X</td>
-//   `;
+function openPopUp() {
+  document.getElementById('pop-up').className = '';
+}; 
 
-//   list.appendChild(row);
-// }
+//Close pop-up window
+document.getElementById('close-form-btn').addEventListener('click', ()=>{
+  closePopUp();
+});
+
+//Open pop-up window to enter book
+document.getElementById('new-book-btn').addEventListener('click', ()=> {
+  openPopUp();
+});
+
+function clearFields() {
+    document.getElementById('name').value = '',
+    document.getElementById('author').value = '',
+    document.getElementById('pages').value = '',
+    document.getElementById('read').value = ''
+};
+
+//Submit pop-up form and add book object to myLibrary array
+document.getElementById('new-book-form').addEventListener('submit', (e)=>{
+  let newBook = new Book(
+    document.getElementById('name').value,
+    document.getElementById('author').value,
+    Number(document.getElementById('pages').value),
+    Boolean(document.getElementById('read').value)
+  );
+
+  myLibrary.push(newBook);
+  addBookToTable(newBook);
+  closePopUp();
+  clearFields();
+
+  e.preventDefault();
+});
+
