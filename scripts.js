@@ -1,4 +1,4 @@
-const myLibrary = [];
+let myLibrary = [];
 
 // Book constructor
 function Book(title, author, pages, read) {
@@ -21,6 +21,8 @@ function addBookToLibrary(book) {
 //Adds book to page as table row
 function addBookToTable(book) {
  let row = document.createElement('tr');
+ let idx = myLibrary.indexOf(book);
+ row.setAttribute('data-index', idx);
 
  row.innerHTML = `
   <td>${book.title}</td>
@@ -28,27 +30,64 @@ function addBookToTable(book) {
   <td>${book.pages}</td>
   <td>${book.read}</td>
   <td class="center"><img class="read-icon hide" src="./assets/icons/noun-book-checkmark-265198.svg" alt=""><img class="read-icon" src="./assets/icons/noun-book-257956.svg" alt=""></td>
-  <td class="center"><img src="./assets/icons/noun-delete-5340923.svg" alt=""></td>
+  <td class="center"><img class="delete" src="./assets/icons/noun-delete-5340923.svg" alt=""></td>
  `;
 
  document.getElementById('book-table').appendChild(row);
 }
 
+//Reload table
+function reloadBooks() {
+  while(document.getElementById('book-table-header').nextElementSibling !== null) { 
+    document.getElementById('book-table-header').nextElementSibling.remove()
+  }
+  
+  myLibrary.forEach(book => addBookToTable(book))
+  loadEventListeners();
+}
+
+/************************************ Create and add example books for testing ***********************/
 myLibrary.push(new Book('Dune', 'Frank Herbert', 400, true));
 myLibrary.push(new Book('Breathe', 'James Nestor', 200, false));
-
-
-myLibrary.forEach(book => addBookToTable(book));
+reloadBooks();
+/************************************ Create and add example books for testing ***********************/
 
 function toggleRead(target) {
   
   let sibling = target.nextElementSibling ? target.nextElementSibling : target.previousElementSibling;
+  let index = target.parentElement.parentElement.dataset.index;
 
   if (target.className === 'read-icon'){
     target.className = 'read-icon hide';
     sibling.className = 'read-icon';
   }
+   
+  console.log(myLibrary[index].read);
 };
+
+
+
+function loadEventListeners() {
+  
+  let readIconNodes = document.getElementsByClassName('read-icon');
+
+  for (i = 0; i < readIconNodes.length; i++) {
+    readIconNodes[i].addEventListener('click', (e) => {
+      toggleRead(e.target);
+    });
+  } 
+  
+  let deleteNodes = document.getElementsByClassName('delete');
+
+  for (i = 0; i < deleteNodes.length; i++) {
+    deleteNodes[i].addEventListener('click', (e) => {
+      let index = e.target.parentElement.parentElement.dataset.index;
+      myLibrary = myLibrary.slice(index + 1);
+      reloadBooks();
+    });
+  }
+
+}
 
 function closePopUp() {
   document.getElementById('pop-up').className = 'hide';
