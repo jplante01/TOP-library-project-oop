@@ -23,14 +23,17 @@ function addBookToTable(book) {
  let row = document.createElement('tr');
  let idx = myLibrary.indexOf(book);
  row.setAttribute('data-index', idx);
-
+ let snippet = (book.read) ?
+  '<td class="center"><img class="read-icon hide" src="./assets/icons/noun-book-checkmark-265198.svg" alt=""><img class="read-icon" src="./assets/icons/noun-book-257956.svg" alt=""></td>':
+  '<td class="center"><img class="read-icon" src="./assets/icons/noun-book-checkmark-265198.svg" alt=""><img class=" hide read-icon" src="./assets/icons/noun-book-257956.svg" alt=""></td>';
+  
  row.innerHTML = `
   <td>${book.title}</td>
   <td>${book.author}</td>
   <td>${book.pages}</td>
-  <td>${book.read}</td>
-  <td class="center"><img class="read-icon hide" src="./assets/icons/noun-book-checkmark-265198.svg" alt=""><img class="read-icon" src="./assets/icons/noun-book-257956.svg" alt=""></td>
-  <td class="center"><img class="delete" src="./assets/icons/noun-delete-5340923.svg" alt=""></td>
+  <td>${book.read}</td>`
+  + snippet +
+  `<td class="center"><img class="delete" src="./assets/icons/noun-delete-5340923.svg" alt=""></td>
  `;
 
  document.getElementById('book-table').appendChild(row);
@@ -62,7 +65,7 @@ function toggleRead(target) {
     sibling.className = 'read-icon';
   }
    
-  console.log(myLibrary[index].read);
+  myLibrary[index].read = !myLibrary[index].read;
 };
 
 
@@ -82,7 +85,7 @@ function loadEventListeners() {
   for (i = 0; i < deleteNodes.length; i++) {
     deleteNodes[i].addEventListener('click', (e) => {
       let index = e.target.parentElement.parentElement.dataset.index;
-      myLibrary = myLibrary.slice(index + 1);
+      myLibrary = myLibrary.splice(index, 1);
       reloadBooks();
     });
   }
