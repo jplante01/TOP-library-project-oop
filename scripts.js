@@ -27,8 +27,8 @@ function addBookToTable(book) {
   <td>${book.author}</td>
   <td>${book.pages}</td>
   <td>${book.read}</td>
-  <td class="center"><a href="#" ></a>X</td>
-  <td class="center"><a href="#" class="delete"></a>X</td>
+  <td class="center"><img class="read-icon hide" src="./assets/icons/noun-book-checkmark-265198.svg" alt=""><img class="read-icon" src="./assets/icons/noun-book-257956.svg" alt=""></td>
+  <td class="center"><img src="./assets/icons/noun-delete-5340923.svg" alt=""></td>
  `;
 
  document.getElementById('book-table').appendChild(row);
@@ -39,6 +39,16 @@ myLibrary.push(new Book('Breathe', 'James Nestor', 200, false));
 
 
 myLibrary.forEach(book => addBookToTable(book));
+
+function toggleRead(target) {
+  
+  let sibling = target.nextElementSibling ? target.nextElementSibling : target.previousElementSibling;
+
+  if (target.className === 'read-icon'){
+    target.className = 'read-icon hide';
+    sibling.className = 'read-icon';
+  }
+};
 
 function closePopUp() {
   document.getElementById('pop-up').className = 'hide';
@@ -81,4 +91,3 @@ document.getElementById('new-book-form').addEventListener('submit', (e)=>{
 
   e.preventDefault();
 });
-
