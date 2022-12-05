@@ -52,6 +52,9 @@ function reloadBooks() {
 /************************************ Create and add example books for testing ***********************/
 myLibrary.push(new Book('Dune', 'Frank Herbert', 400, true));
 myLibrary.push(new Book('Breathe', 'James Nestor', 200, false));
+myLibrary.push(new Book('The Adventures of Tom Sawyer', 'Mark Twain', 350, true));
+myLibrary.push(new Book('Crash', 'Tom Jones', 400, false));
+myLibrary.push(new Book('American Kingpin', 'Lex Dire', 400, true));
 reloadBooks();
 /************************************ Create and add example books for testing ***********************/
 
@@ -85,7 +88,7 @@ function loadEventListeners() {
   for (i = 0; i < deleteNodes.length; i++) {
     deleteNodes[i].addEventListener('click', (e) => {
       let index = e.target.parentElement.parentElement.dataset.index;
-      myLibrary = myLibrary.splice(index, 1);
+      myLibrary.splice(index, 1);
       reloadBooks();
     });
   }
@@ -127,7 +130,7 @@ document.getElementById('new-book-form').addEventListener('submit', (e)=>{
   );
 
   myLibrary.push(newBook);
-  addBookToTable(newBook);
+  reloadBooks();
   closePopUp();
   clearFields();
 
