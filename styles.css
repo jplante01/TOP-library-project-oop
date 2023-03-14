@@ -130,6 +130,10 @@ tr:first-child {
   display: none; 
 }
 
+input:invalid {
+  box-shadow: 0 0 5px 1px red;
+}
+
 .form-container {
   position: relative;
   left: 25vw;
